@@ -9,7 +9,7 @@ Using the basic CRF model:
 
     java -jar target/udaner-1.0-jar-with-dependencies.jar -source-train data/genetag_train -target-train data/fly_train -test data/fly_test
 
-The input file should be the format that each line is a token and its label (seperated by TAB), and sentences are seperated by a blank line (./data directory contains some examples):
+The input file should be in the format that each line is a token and its label (seperated by TAB), and sentences are seperated by a blank line (./data directory contains some examples):
 
     Cervicovaginal	O
     foetal	B-GENE
@@ -58,7 +58,7 @@ The input file should be the format that each line is a token and its label (sep
     complex	O
     .	O
 
-The default method used to train the model dose not perform domain adaptation. Change the method with `-method`:
+The default method used to train the model does not perform domain adaptation. Change the method with `-method`:
 
     java -jar target/udaner-1.0-jar-with-dependencies.jar -source-train data/genetag_train -target-train data/fly_train -test data/fly_test -method FEATURE_SUBSETTING
 
@@ -72,7 +72,7 @@ To output the labels for an unlabeled data set, use `-pred` instead of `-test`
 
     java -jar target/udaner-1.0-jar-with-dependencies.jar -source-train data/genetag_train -target-train data/fly_train -pred data/fly_test
 
-The program outputs the labels directly to `STDIN`. If you want to save it in a file, you can redirect `STDIN`:
+The program outputs the labels directly to `STDOUT`. If you want to save it in a file, you can redirect `STDOUT`:
 
     java -jar target/udaner-1.0-jar-with-dependencies.jar -source-train data/genetag_train -target-train data/fly_train -pred data/fly_test > fly_test_labels
 
